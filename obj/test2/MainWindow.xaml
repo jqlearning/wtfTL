@@ -16,7 +16,9 @@
             <Metro:MetroExpander Header="业务功能" IsExpanded="False">
                 <StackPanel>
                     <TreeViewItem Header="资料管理" IsExpanded="True">
-                        <TreeViewItem Header="文件管理" HorizontalAlignment="Left"/>
+                        <TreeViewItem Header="文件管理" HorizontalAlignment="Left" >
+                            <Button  Content="加Item" Click="Button_Click"></Button>
+                        </TreeViewItem>
                         <TreeViewItem Header="对象管理" HorizontalAlignment="Left" />
                     </TreeViewItem>
                 </StackPanel>
@@ -41,15 +43,65 @@
                 </StackPanel>
             </Metro:MetroExpander>
         </StackPanel>
-        <TabControl x:Name="tabControl" Grid.Column="1">
+        <TabControl x:Name="tabControl" Grid.Column="1" Tag="100">
             <TabItem Header="文件管理">
                 <Grid Background="#fff">
-                    <Grid HorizontalAlignment="Stretch" Height="100" Margin="10,10,10,10" VerticalAlignment="Top" Background="#666">
-                        <Grid HorizontalAlignment="Stretch" Height="30" Margin="10,5,10,10" VerticalAlignment="Top" Background="#999">
-                            <Label x:Name="label" Content="文件管理" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
+                    <Metro:MetroBorder BorderBrush="#FFE5E5E5" BorderThickness="1" HorizontalAlignment="Stretch" Height="145" Margin="10,10,10,0" VerticalAlignment="Top">
+                        <Grid HorizontalAlignment="Stretch" Height="134" Margin="0,0,0,0" VerticalAlignment="Top" Background="#fff" >
+                            <Grid HorizontalAlignment="Stretch" Height="30" Margin="0,0,0,10" VerticalAlignment="Top" Background="#FFE5E5E5">
+                                <Label x:Name="label_title" Content="文件管理" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
+                            </Grid>
+                            <Metro:MetroBorder BorderBrush="#666" BorderThickness="1" HorizontalAlignment="Stretch" Height="100" Margin="5,35,5,0" VerticalAlignment="Top">
+                                <Grid HorizontalAlignment="Stretch" Height="30"  Margin="0,0,0,10" VerticalAlignment="Top" Background="#fff">
+                                    <Border BorderBrush="#666" BorderThickness="0,0,1,1" HorizontalAlignment="Left" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" Width="150">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" Width="150" TextBlock.TextAlignment="Center">
+                                            <Label x:Name="label_name" Content="名称：" Height="30" HorizontalAlignment="Right" Margin="0,3,0,0" VerticalAlignment="Top" />
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#666" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Height="30" Margin="150,0,0,0" VerticalAlignment="Top" Width="300">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,0,0" VerticalAlignment="Top" Background="#fff" Width="300" TextBlock.TextAlignment="Center">
+                                            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="20" Margin="10,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#666" BorderThickness="0,0,1,1" HorizontalAlignment="Right" Height="30" Margin="0,0,370,0" VerticalAlignment="Top" Width="150">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,0,0" VerticalAlignment="Top" Background="#FFE5E5E5" Width="150" TextBlock.TextAlignment="Center">
+                                            <Label x:Name="label_datetime" Content="日期：" Height="30" HorizontalAlignment="Right" Margin="0,3,0,0" VerticalAlignment="Top" />
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#666" BorderThickness="0,0,0,1" HorizontalAlignment="Right" Height="30" Margin="0,0,0,0" VerticalAlignment="Top" Width="368">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,0,0" VerticalAlignment="Top" Background="#fff" Width="368" TextBlock.TextAlignment="Center">
+                                            <Calendar HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-2,0,-1"/>
+                                            <Calendar HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-2,0,-1"/>
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#666" BorderThickness="0,0,1,1" HorizontalAlignment="Left" Height="30" Margin="0,30,0,-30" VerticalAlignment="Top" Width="150">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,-1,-1" VerticalAlignment="Top" Background="#FFE5E5E5" Width="150" TextBlock.TextAlignment="Center">
+                                            <Label x:Name="label_belongTime" Content="所属时段：" Height="30" HorizontalAlignment="Right" Margin="0,3,0,0" VerticalAlignment="Top" />
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#666" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Height="30" Margin="150,30,0,-30" VerticalAlignment="Top" Width="300">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,0,-1" VerticalAlignment="Top" Background="#fff" Width="300" TextBlock.TextAlignment="Center">
+                                            <Calendar HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-4,0,0" />
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#666" BorderThickness="0,0,1,1" HorizontalAlignment="Right" Height="30" Margin="0,30,370,-30" VerticalAlignment="Top" Width="150">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,-1,-1" VerticalAlignment="Top" Background="#FFE5E5E5" Width="150" TextBlock.TextAlignment="Center">
+                                            <Label x:Name="label_operatetime" Content="操作时间：" Height="30" HorizontalAlignment="Right" Margin="0,3,0,0" VerticalAlignment="Top" />
+                                        </Grid>
+                                    </Border>
+                                    <Border BorderBrush="#666" BorderThickness="0,0,0,1" HorizontalAlignment="Right" Height="30" Margin="0,30,0,-30" VerticalAlignment="Top" Width="368">
+                                        <Grid HorizontalAlignment="Left" Height="30"  Margin="0,0,0,0" VerticalAlignment="Top" Background="#fff" Width="368" TextBlock.TextAlignment="Center">
+                                            <Calendar HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-2,0,-1"/>
+                                            <Calendar HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-2,0,-1"/>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+
+                            </Metro:MetroBorder>
                         </Grid>
-                        
-                    </Grid>
+                    </Metro:MetroBorder>
+                    <Button x:Name="button" Content="查询" HorizontalAlignment="Left" Margin="392,124,0,0" VerticalAlignment="Top" Width="75"/>
+
                 </Grid>
             </TabItem>
             <TabItem Header="对象管理">
