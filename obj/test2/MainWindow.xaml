@@ -1,0 +1,61 @@
+﻿<Window x:Class="test2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test2"
+        xmlns:Metro="clr-namespace:Arthas.Controls.Metro;assembly=Arthas"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1225">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="1014*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="lists">
+            <Metro:MetroExpander Header="业务功能" IsExpanded="False">
+                <StackPanel>
+                    <TreeViewItem Header="资料管理" IsExpanded="True">
+                        <TreeViewItem Header="文件管理" HorizontalAlignment="Left"/>
+                        <TreeViewItem Header="对象管理" HorizontalAlignment="Left" />
+                    </TreeViewItem>
+                </StackPanel>
+            </Metro:MetroExpander>
+            <Metro:MetroExpander Header="监控对象" IsExpanded="False">
+                <StackPanel>
+                    <TreeViewItem Header="重庆南线路车间" IsExpanded="True">
+                        <TreeViewItem Header="路工区1" HorizontalAlignment="Left" Width="221"/>
+                        <TreeViewItem Header="路工区2" HorizontalAlignment="Left" Width="221"/>
+                        <TreeViewItem Header="路工区3" HorizontalAlignment="Left" Width="221"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="江津线路车间" IsExpanded="False">
+                        <TreeViewItem Header="路工区4" HorizontalAlignment="Left" Width="221"/>
+                        <TreeViewItem Header="路工区5" HorizontalAlignment="Left" Width="221"/>
+                        <TreeViewItem Header="路工区6" HorizontalAlignment="Left" Width="221"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="赶水桥路车间" IsExpanded="False">
+                        <TreeViewItem Header="路工区7" HorizontalAlignment="Left" Width="221"/>
+                        <TreeViewItem Header="路工区8" HorizontalAlignment="Left" Width="221"/>
+                        <TreeViewItem Header="路工区9" HorizontalAlignment="Left" Width="221"/>
+                    </TreeViewItem>
+                </StackPanel>
+            </Metro:MetroExpander>
+        </StackPanel>
+        <TabControl x:Name="tabControl" Grid.Column="1">
+            <TabItem Header="文件管理">
+                <Grid Background="#fff">
+                    <Grid HorizontalAlignment="Stretch" Height="100" Margin="10,10,10,10" VerticalAlignment="Top" Background="#666">
+                        <Grid HorizontalAlignment="Stretch" Height="30" Margin="10,5,10,10" VerticalAlignment="Top" Background="#999">
+                            <Label x:Name="label" Content="文件管理" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                        
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="对象管理">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
