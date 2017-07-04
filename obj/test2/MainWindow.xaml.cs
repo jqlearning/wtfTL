@@ -29,6 +29,27 @@ namespace test2
         public MainWindow()
         {
             InitializeComponent();
+            //保持一个treeItem关闭其他的
+            foreach (FrameworkElement fe in lists.Children)
+            {
+                if (fe is MetroExpander)
+                {
+                    (fe as MetroExpander).Click += delegate (object sender, EventArgs e)
+                    {
+                        if ((fe as MetroExpander).CanHide)
+                        {
+                            foreach (FrameworkElement fe1 in lists.Children)
+                            {
+                                if (fe1 is MetroExpander && fe1 != sender)
+                                {
+                                    (fe1 as MetroExpander).IsExpanded = false;
+                                }
+                            }
+                        }
+                    };
+                }
+            }
+
         }
     }
 }
